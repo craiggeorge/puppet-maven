@@ -1,7 +1,8 @@
-class maven {
+class maven (
+  $version = '3.2.2'
+) {
 
   require wget
-  $version = '3.2.2'
 
   file { "/tmp/apache-maven-${version}-bin.tar.gz":
     ensure => present,
@@ -10,7 +11,7 @@ class maven {
 
   exec { 'Fetch maven':
     cwd => '/tmp',
-    command => "wget http://apache.komsys.org/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz",
+    command => "wget http://archive.apache.org/dist/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz",
     creates => "/tmp/apache-maven-${version}-bin.tar.gz",
     path    => ['/opt/boxen/homebrew/bin'];
   }
