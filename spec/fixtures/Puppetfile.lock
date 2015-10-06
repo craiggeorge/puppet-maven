@@ -1,4 +1,14 @@
 GITHUBTARBALL
+  remote: boxen/puppet-boxen
+  specs:
+    boxen (3.6.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-homebrew
+  specs:
+    homebrew (2.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-wget
   specs:
     wget (1.0.1)
@@ -6,9 +16,11 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-stdlib
   specs:
-    stdlib (4.1.0)
+    stdlib (4.0.0)
 
 DEPENDENCIES
-  stdlib (= 4.1.0)
+  boxen (= 3.6.1)
+  homebrew (= 2.0.0)
+  stdlib (= 4.0.0)
   wget (= 1.0.1)
 
