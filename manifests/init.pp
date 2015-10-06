@@ -1,16 +1,22 @@
+# Public: Install and configure Apache Maven
+#
+# Examples
+#
+#   include maven
+
 class maven (
   $version = '3.2.2'
 ) {
 
-  require wget
+  include wget
 
   file { "/tmp/apache-maven-${version}-bin.tar.gz":
-    ensure => present,
+    ensure  => present,
     require => Exec['Fetch maven'],
   }
 
   exec { 'Fetch maven':
-    cwd => '/tmp',
+    cwd     => '/tmp',
     command => "wget http://archive.apache.org/dist/maven/maven-3/${version}/binaries/apache-maven-${version}-bin.tar.gz",
     creates => "/tmp/apache-maven-${version}-bin.tar.gz",
     path    => ['/opt/boxen/homebrew/bin'];
@@ -33,9 +39,9 @@ class maven (
     target  => "/usr/local/apache-maven-${version}",
     require => File["/usr/local/apache-maven-${version}"];
   }
-  
-  file { '/opt/boxen/bin/mvn': 
-    ensure => link,
+
+  file { '/opt/boxen/bin/mvn':
+    ensure  => link,
     target  => '/usr/local/maven/bin/mvn',
     require => File['/usr/local/maven'];
   }
