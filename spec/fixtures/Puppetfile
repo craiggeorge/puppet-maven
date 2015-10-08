@@ -6,6 +6,3 @@ mod "homebrew", "2.0.0",
 
 mod "stdlib", "4.0.0",
 	:github_tarball => "puppetlabs/puppetlabs-stdlib"
-
-mod "wget", "1.0.1",
-	:github_tarball => "boxen/puppet-wget"
