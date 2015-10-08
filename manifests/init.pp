@@ -8,7 +8,8 @@ class maven (
   $version = '3.2.2'
 ) {
 
-  include wget
+  # TODO - package wget?
+  require wget
 
   file { "/tmp/apache-maven-${version}-bin.tar.gz":
     ensure  => present,
